@@ -1,0 +1,213 @@
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUDU PET SHOP - Agendamento</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #32373c;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #32373c;
+        }
+
+        form {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        form input,
+        form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #32373c;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #32373c;
+            color: #ffffff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .logo {
+            max-width: 150px; /* Ajuste o tamanho da logo conforme necessário */
+            margin: 10px auto; /* Centraliza a logo */
+            display: block; /* Faz a logo ser um bloco */
+        }
+
+        .galeria {
+            margin-top: 20px;
+        }
+
+        .galeria img {
+            max-width: 100%; /* Ajusta o tamanho das imagens para caber na tela */
+            margin: 10px 0; /* Espaçamento entre as imagens */
+            border-radius: 5px; /* Bordas arredondadas */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra nas imagens */
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            color: #ffffff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.5em; /* Tamanho dos ícones */
+        }
+    </style>
+    <script>
+        function enviarParaWhatsApp(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            const nome = document.getElementById('nome').value;
+            const data = document.getElementById('data').value;
+            const hora = document.getElementById('hora').value;
+            const servico = document.getElementById('servico').value;
+
+            const mensagem = `Nome: ${nome}\nData: ${data}\nHora: ${hora}\nServiço: ${servico}`;
+            const numeroWhatsApp = '5511999999999'; // Substitua pelo seu número do WhatsApp com DDD
+            const urlWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`;
+
+            window.open(urlWhatsApp, '_blank'); // Abre o WhatsApp com a mensagem
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <img src="sua-logo.png" alt="Logo DUDU PET SHOP" class="logo"> <!-- Substitua 'sua-logo.png' pelo nome do arquivo da sua logo -->
+        <h1>DUDU PET SHOP</h1>
+        <nav>
+            <ul>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#agendamento">Agendamento</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="servicos">
+            <h2>Nossos Serviços</h2>
+            <p>Oferecemos serviços de banho e tosa para seu pet, com profissionais qualificados.</p>
+        </section>
+
+        <section id="agendamento">
+            <h2>Agende um Horário</h2>
+            <form onsubmit="enviarParaWhatsApp(event)">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="data">Data:</label>
+                <input type="date" id="data" name="data" required>
+
+                <label for="hora">Hora:</label>
+                <input type="time" id="hora" name="hora" required>
+
+                <label for="servico">Serviço:</label>
+                <select id="servico" name="servico">
+                    <option value="banho">Banho</option>
+                    <option value="tosa">Tosa</option>
+                    <option value="banho-tosa">Banho e Tosa</option>
+                </select>
+
+                <button type="submit">Agendar</button>
+            </form>
+        </section>
+
+        <section id="galeria">
+            <h2>Galeria de Serviços</h2>
+            <div class="galeria">
+                <img src="cachorro1.jpg" alt="Cachorro 1">
+                <img src="cachorro2.jpg" alt="Cachorro 2">
+                <img src="cachorro3.jpg" alt="Cachorro 3">
+                <img src="cachorro4.jpg" alt="Cachorro 4">
+                <img src="cachorro5.jpg" alt="Cachorro 5">
+                <img src="cachorro6.jpg" alt="Cachorro 6">
+                <img src="cachorro7.jpg" alt="Cachorro 7">
+                <img src="cachorro8.jpg" alt="Cachorro 8">
+                <img src="cachorro9.jpg" alt="Cachorro 9">
+                <img src="cachorro10.jpg" alt="Cachorro 10">
+            </div>
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Entre em contato conosco pelo WhatsApp: (11) 99999-9999</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 DUDU PET SHOP. Todos os direitos reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/seu_usuario" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/seu_usuario" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+    </footer>
+</body>
+
+</html>
