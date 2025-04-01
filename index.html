@@ -6,16 +6,27 @@
     <title>DUDU PET SHOP - Agendamento</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        :root {
+            --cor-principal: #32373c;
+            --cor-secundaria: #f4f4f4;
+            --cor-vermelho: #47ffd1;
+            /* Coral */
+            --cor-roxo: #d8bfd8;
+            /* Thistle */
+            --cor-verde: #00ff00;
+            --cor-azul: #87ceeb;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: var(--cor-secundaria);
         }
 
         header {
-            background: #32373c;
-            color: black;
+            background: var(--cor-principal);
+            color: var(--cor-vermelho);
             padding: 10px 0;
             text-align: center;
         }
@@ -31,8 +42,9 @@
         }
 
         nav a {
-            color: #ffffff;
+            color: var(--cor-roxo);
             text-decoration: none;
+            text-shadow: 0 0 5px var(--cor-roxo), 0 0 10px var(--cor-roxo), 0 0 15px var(--cor-roxo);
         }
 
         main {
@@ -40,7 +52,8 @@
         }
 
         h2 {
-            color: #32373c;
+            color: var(--cor-principal);
+            text-shadow: 0 0 5px var(--cor-roxo);
         }
 
         form {
@@ -53,6 +66,8 @@
         form label {
             display: block;
             margin: 10px 0 5px;
+            color: var(--cor-principal);
+            text-shadow: 0 0 5px var(--cor-roxo);
         }
 
         form input,
@@ -62,46 +77,40 @@
             margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--cor-principal);
+            box-shadow: 0 0 5px var(--cor-roxo);
         }
 
         button {
-            background: #32373c;
-            color: #ffffff;
+            background: var(--cor-principal);
+            color: var(--cor-roxo);
             border: none;
             padding: 10px;
             border-radius: 5px;
             cursor: pointer;
+            text-shadow: 0 0 5px var(--cor-roxo), 0 0 10px var(--cor-roxo), 0 0 15px var(--cor-roxo);
+            box-shadow: 0 0 5px var(--cor-roxo), 0 0 10px var(--cor-roxo), 0 0 15px var(--cor-roxo);
+            transition: all 0.3s ease;
         }
 
         button:hover {
             background: #555;
+            box-shadow: 0 0 10px var(--cor-roxo), 0 0 20px var(--cor-roxo), 0 0 30px var(--cor-roxo);
         }
 
         footer {
             text-align: center;
             padding: 10px 0;
-            background: #32373c;
-            color: #ffffff;
+            background: var(--cor-principal);
+            color: var(--cor-azul);
             position: relative;
             bottom: 0;
             width: 100%;
         }
 
-       
-
         .galeria {
             margin-top: 20px;
-        }
-
-        .galeria img {
-            max-width: 100%;
-            /* Ajusta o tamanho das imagens para caber na tela */
-            margin: 10px 0;
-            /* Espaçamento entre as imagens */
-            border-radius: 5px;
-            /* Bordas arredondadas */
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-            /* Sombra nas imagens */
         }
 
         .social-icons {
@@ -109,11 +118,11 @@
         }
 
         .social-icons a {
-            color: #ffffff;
-            margin: 0 50px;
-            text-decoration: black;
+            color: var(--cor-azul);
+            margin: 0 10px;
+            text-decoration: none;
             font-size: 1.5em;
-            /* Tamanho dos ícones */
+            text-shadow: 0 0 5px var(--cor-azul), 0 0 10px var(--cor-azul), 0 0 15px var(--cor-azul);
         }
     </style>
     <script>
@@ -125,19 +134,20 @@
             const hora = document.getElementById('hora').value;
             const servico = document.getElementById('servico').value;
 
-            const mensagem = `Nome: ${nome}\nData: ${data}\nHora: ${hora}\nServiço: ${servico}`;
+            const mensagem = Nome: ${ nome }\nData: ${ data }\nHora: ${ hora }\nServiço: ${ servico };
             const numeroWhatsApp = '5516992320582'; // Substitua pelo seu número do WhatsApp com DDD
-            const urlWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`;
+            const urlWhatsApp = https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)};
 
-            window.open(urlWhatsApp, '_blank'); // Abre o WhatsApp com a mensagem
+                window.open(urlWhatsApp, '_blank'); // Abre o WhatsApp com a mensagem
         }
     </script>
 </head>
 
 <body>
     <header>
-     
-        <h1>DUDU PET SHOP</h1>
+        <h1
+            style="text-shadow: 0 0 10px var(--cor-vermelho), 0 0 20px var(--cor-vermelho), 0 0 30px var(--cor-vermelho), 0 0 40px var(--cor-vermelho), 0 0 50px var(--cor-vermelho), 0 0 60px var(--cor-vermelho);">
+            DUDU PET SHOP</h1>
         <nav>
             <ul>
                 <li><a href="#servicos">Serviços</a></li>
@@ -150,7 +160,10 @@
     <main>
         <section id="servicos">
             <h2>Nossos Serviços</h2>
-            <p>Oferecemos serviços de banho e tosa para seu pet, com profissionais qualificados.</p>
+            <p>Aqui no DUDU PET SHOP, cuidamos muito bem do seu pet. Oferecemos serviços de banho e tosa com
+                profissionais qualificados e dedicados, garantindo que seu animalzinho receba todo o carinho e atenção
+                que merece. Utilizamos produtos de alta qualidade e técnicas modernas para deixar seu pet limpo,
+                saudável e feliz. Venha conhecer nosso espaço aconchegante e faça parte da nossa família!</p>
         </section>
 
         <section id="agendamento">
@@ -177,14 +190,9 @@
         </section>
 
         <section id="galeria">
-            <h2>Galeria de Serviços</h2>
+            <h2>Agende Já seu horario</h2>
             <div class="galeria">
-
-
-
-               
-
-
+                <!-- Removido todas as imagens -->
             </div>
         </section>
 
@@ -195,13 +203,18 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 DUDU PET SHOP. Todos os direitos reservados.</p>
+        <p style="text-shadow: 0 0 5px var(--cor-azul), 0 0 10px var(--cor-azul), 0 0 15px var(--cor-azul);">&copy; 2025
+            DUDU PET SHOP. Todos os direitos reservados.</p>
         <div class="social-icons">
-            <a href="https://www.instagram.com/dudupetshopp" target="_blank" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
+            <a href="https://www.instagram.com/dudupetshopp" target="_blank" rel="noopener noreferrer"
+                aria-label="Instagram">
+                <i class="fab fa-instagram"
+                    style="text-shadow: 0 0 5px var(--cor-azul), 0 0 10px var(--cor-azul), 0 0 15px var(--cor-azul);"></i>
             </a>
-            <a href="https://www.facebook.com/seu_usuario" target="_blank" aria-label="Facebook">
-                <i class="fab fa-facebook-f"></i>
+            <a href="https://www.facebook.com/Eduardo Msouza" target="_blank" rel="noopener noreferrer"
+                aria-label="Facebook">
+                <i class="fab fa-facebook-f"
+                    style="text-shadow: 0 0 5px var(--cor-azul), 0 0 10px var(--cor-azul), 0 0 15px var(--cor-azul);"></i>
             </a>
         </div>
     </footer>
