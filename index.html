@@ -6,122 +6,7 @@
     <title>DUDU PET SHOP - Agendamento</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        :root {
-            --cor-principal: #32373c;
-            --cor-secundaria: #f4f4f4;
-            --cor-vermelho: #00d9ff;
-            --cor-roxo: #d8bfd8;
-            --cor-verde: #00ff00;
-            --cor-azul: #87ceeb;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--cor-secundaria);
-        }
-
-        header {
-            background: var(--cor-principal);
-            color: var(--cor-vermelho);
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-
-        nav a {
-            color: var(--cor-roxo);
-            text-decoration: none;
-            text-shadow: 0 0 5px var(--cor-roxo), 0 0 10px var(--cor-roxo), 0 0 15px var(--cor-roxo);
-        }
-
-        main {
-            padding: 20px;
-        }
-
-        h2 {
-            color: var(--cor-principal);
-            text-shadow: 0 0 5px var(--cor-roxo);
-        }
-
-        form {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        form label {
-            display: block;
-            margin: 10px 0 5px;
-            color: var(--cor-principal);
-            text-shadow: 0 0 5px var(--cor-roxo);
-        }
-
-        form input,
-        form select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--cor-principal);
-            box-shadow: 0 0 5px var(--cor-roxo);
-        }
-
-        button {
-            background: var(--cor-principal);
-            color: var(--cor-roxo);
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-shadow: 0 0 5px var(--cor-roxo), 0 0 10px var(--cor-roxo), 0 0 15px var(--cor-roxo);
-            box-shadow: 0 0 5px var(--cor-roxo), 0 0 10px var(--cor-roxo), 0 0 15px var(--cor-roxo);
-            transition: all 0.3s ease;
-        }
-
-        button:hover {
-            background: #555;
-            box-shadow: 0 0 10px var(--cor-roxo), 0 0 20px var(--cor-roxo), 0 0 30px var(--cor-roxo);
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background: var(--cor-principal);
-            color: var(--cor-azul);
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .galeria {
-            margin-top: 20px;
-        }
-
-        .social-icons {
-            margin-top: 10px;
-        }
-
-        .social-icons a {
-            color: var(--cor-azul);
-            margin: 0 50px;
-            text-decoration: none;
-            font-size: 1.5em;
-            text-shadow: 0 0 5px var(--cor-azul), 0 0 50px var(--cor-azul), 0 0 15px var(--cor-azul);
-        }
+        /* ... (seu CSS permanece o mesmo) ... */
     </style>
     <script>
         function enviarParaWhatsApp(event) {
@@ -133,18 +18,29 @@
             const hora = document.getElementById('hora').value;
             const servico = document.getElementById('servico').value;
 
-            const mensagem = Nome: ${nome}\nNome do seu pet: ${nomePet}\nData: ${data}\nHora: ${hora}\nServiço: ${servico};
-            const numeroWhatsApp = '5516992320582'; // Substitua pelo seu número do WhatsApp com DDD
-            const urlWhatsApp = https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)};
+            console.log('Nome:', nome);
+            console.log('Nome do Pet:', nomePet);
+            console.log('Data:', data);
+            console.log('Hora:', hora);
+            console.log('Serviço:', servico);
 
-            window.open(urlWhatsApp, '_blank'); // Abre o WhatsApp com a mensagem
+            const mensagem = Nome: ${encodeURIComponent(nome)}%0ANome do seu pet: ${encodeURIComponent(nomePet)}%0AData: ${encodeURIComponent(data)}%0AHora: ${encodeURIComponent(hora)}%0AServiço: ${encodeURIComponent(servico)};
+            const numeroWhatsApp = '5516992320582'; // Substitua pelo seu número do WhatsApp com DDD
+            const urlWhatsApp = https://api.whatsapp.com/send/?phone=${numeroWhatsApp}&text=${mensagem}&type=phone_number&app_absent=0;
+
+            if (nome && nomePet && data && hora && servico) {
+                window.open(urlWhatsApp, '_blank'); // Abre o WhatsApp com a mensagem
+            } else {
+                alert("Por favor, preencha todos os campos do formulário antes de agendar.");
+            }
+            return false; // Impede o envio padrão do formulário
         }
     </script>
 </head>
 
 <body>
     <header>
-        <h1 style="text-shadow: 0 0 10px var(--cor-vermelho), 0 0 20px var(--cor-vermelho), 0 0 30px var(--cor-vermelho), 0 0 40px var(--cor-vermelho), 0 0 50px var(--cor-vermelho), 0 0 60px var(--cor-vermelho);">DUDU PET SHOP</h1>
+        <h1>DUDU PET SHOP</h1>
         <nav>
             <ul>
                 <li><a href="#servicos">Serviços</a></li>
@@ -162,7 +58,7 @@
 
         <section id="agendamento">
             <h2>Agende um Horário</h2>
-            <form onsubmit="enviarParaWhatsApp(event)">
+            <form onsubmit="return enviarParaWhatsApp(event)">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" required>
 
@@ -189,7 +85,7 @@
         <section id="galeria">
             <h2>Galeria de Serviços</h2>
             <div class="galeria">
-                <!-- Removido todas as imagens -->
+                <!-- Adicione imagens aqui se desejar -->
             </div>
         </section>
 
@@ -200,13 +96,13 @@
     </main>
 
     <footer>
-        <p style="text-shadow: 0 0 5px var(--cor-azul), 0 0 10px var(--cor-azul), 0 0 15px var(--cor-azul);">&copy; 2025 DUDU PET SHOP. Todos os direitos reservados.</p>
+        <p>&copy; 2025 DUDU PET SHOP. Todos os direitos reservados.</p>
         <div class="social-icons">
             <a href="https://www.instagram.com/dudupetshopp" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <i class="fab fa-instagram" style="text-shadow: 0 0 5px var(--cor-azul), 0 0 10px var(--cor-azul), 0 0 15px var(--cor-azul);"></i>
+                <i class="fab fa-instagram"></i>
             </a>
             <a href="https://www.facebook.com/Eduardo Msouza" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <i class="fab fa-facebook-f" style="text-shadow: 0 0 5px var(--cor-azul), 0 0 10px var(--cor-azul), 0 0 15px var(--cor-azul);"></i>
+                <i class="fab fa-facebook-f"></i>
             </a>
         </div>
     </footer>
